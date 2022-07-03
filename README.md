@@ -110,9 +110,14 @@ Setting a password entails more work for a few reasons:
 - We need something to hash the password on the backend when it is set - with Dashibase Insert, we use a Postgres trigger
 - We need something to validate the password on the backend when the form is requested - with Dashibase Insert, we use AWS Lambda
 
-The following is a sample of a possible Postgres trigger, run before the `forms` table is updated or inserted. Here we concat the password with the form ID and then hash that with SHA256.
+The following is sample code to create a possible Postgres function to run before the `forms` table is updated or inserted. Here we concat the password with the form ID and then hash that with SHA256.
 
 ```sql
+CREATE FUNCTION hash_password()
+RETURNS trigger
+LANGUAGE plpgsql
+AS
+$$
 BEGIN
   IF (OLD.password_hash IS DISTINCT FROM NEW.password_hash) THEN
     IF NOT (NEW.password_hash = '') THEN
@@ -121,6 +126,14 @@ BEGIN
   END IF;
   RETURN NEW;
 END;
+$$;
+```
+
+Then the function can be added as a trigger with the following code.
+
+```sql
+CREATE TRIGGER hash_password BEFORE INSERT OR UPDATE ON forms
+  FOR EACH ROW EXECUTE FUNCTION hash_password();
 ```
 
 Here is a sample of what the serverless function to validate passwords may look like. (If you are using AWS Lambda, see [here](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-package.html) for details about how to deploy Node.js Lambda functions with packages.)
