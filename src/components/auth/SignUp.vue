@@ -80,7 +80,7 @@ async function signUp () {
   loading.value = true
   if (password.value.length < minPasswordLength.value) {
     warning.value = `Password needs to be at least ${minPasswordLength.value} characters`
-  } else {
+  } else if (import.meta.env.VITE_HOSTED_BY_DASHIBASE) {
     const checkUserResponse = await supabase.from('profiles').select('id').eq('email', email.value).single()
     if (!checkUserResponse.error) {
       loading.value = false
@@ -105,6 +105,24 @@ async function signUp () {
           email: email.value,
         })
       })
+      if (!confirmEmail.value) {
+        // Redirect user if confirmEmail is false
+        router.push('/')
+      }
+    }
+  } else {
+    const { user, error } = await supabase.auth.signUp({
+      email: email.value,
+      password: password.value,
+    }, {
+      redirectTo: window.location.origin
+    })
+    loading.value = false
+    if (error) {
+      if (error.message === 'User already registered') warning.value = 'You\'ve already registered. Try logging in with your existing Dashibase account?'
+      else warning.value = error.message
+    } else {
+      success.value = true
       if (!confirmEmail.value) {
         // Redirect user if confirmEmail is false
         router.push('/')

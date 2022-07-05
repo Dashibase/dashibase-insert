@@ -95,7 +95,7 @@ async function signIn () {
   if (error) {
     loading.value = false
     warning.value = error.message
-  } else {
+  } else if (import.meta.env.VITE_HOSTED_BY_DASHIBASE) {
     const { data, error } = await supabase.from('profiles').select('dashibase_insert').eq('id', supabase.auth.user()?.id).single()
     loading.value = false
     if (error) warning.value = error.message
@@ -105,6 +105,10 @@ async function signIn () {
       // Redirect to dashboard
       router.push('/')
     }
+  } else {
+    success.value = true
+    // Redirect to dashboard
+    router.push('/')
   }
 }
 </script>
