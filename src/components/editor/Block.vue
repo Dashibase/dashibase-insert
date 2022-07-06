@@ -66,16 +66,17 @@
         @keydown.down="handleMoveDown"
         @keyup="keyUpHandler"
         @keydown="keyDownHandler"
-        class="focus:outline-none focus-visible:outline-none w-full py-1.5"
+        class="focus:outline-none focus-visible:outline-none w-full"
         :class="{
-          'text-4xl font-semibold': block.type === BlockType.H1,
-          'text-3xl font-medium': block.type === BlockType.H2,
+          'py-1.5 ': block.type === BlockType.Text,
+          'py-1.5 text-4xl font-semibold': block.type === BlockType.H1,
+          'py-1.5 text-3xl font-medium': block.type === BlockType.H2,
           'py-0 h-[1px] bg-neutral-300 mt-[1.2rem]': block.type === BlockType.Divider,
-          'border rounded shadow px-2 max-w-sm text-neutral-400 truncate focus:overflow-auto mb-2': block.type === BlockType.ShortAnswer,
-          'border rounded shadow px-2 text-neutral-400 min-h-[6rem] mb-2': block.type === BlockType.LongAnswer,
-          'border rounded shadow px-2 max-w-sm text-neutral-400 truncate focus:overflow-auto pr-8 mb-2': [BlockType.Date, BlockType.Time, BlockType.Datetime].includes(block.type),
-          'mt-1 rounded-full px-2 w-12 h-7 mb-2 bg-neutral-200': block.type === BlockType.Bool,
-          'border rounded shadow px-2 max-w-sm truncate mb-2 z-20 bg-white h-[2.1rem] focus:overflow-visible focus:h-auto flex flex-col gap-2': block.type === BlockType.Dropdown,
+          'py-1.5 border rounded shadow px-2 max-w-sm text-neutral-400 truncate focus:overflow-auto mb-2': block.type === BlockType.ShortAnswer,
+          'py-1.5 border rounded shadow px-2 text-neutral-400 min-h-[6rem] mb-2': block.type === BlockType.LongAnswer,
+          'py-1.5 border rounded shadow px-2 max-w-sm text-neutral-400 truncate focus:overflow-auto pr-8 mb-2': [BlockType.Date, BlockType.Time, BlockType.Datetime].includes(block.type),
+          'py-1.5 mt-1 rounded-full px-2 w-12 h-7 mb-2 bg-neutral-200': block.type === BlockType.Bool,
+          'py-1.5 border rounded shadow px-2 max-w-sm truncate mb-2 z-20 bg-white h-[2.1rem] focus:overflow-visible focus:h-auto flex flex-col gap-2': block.type === BlockType.Dropdown,
         }"
         :block-type="block.type"
         :data-ph="placeholder">
