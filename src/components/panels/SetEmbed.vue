@@ -12,9 +12,9 @@
       </div>
       <div class="overflow-x-auto">
         <div class="font-mono whitespace-nowrap bg-neutral-50 p-4 rounded text-black w-max">
-          &lt;div id="dashibase-insert" style="width: 100%; height: 800px; margin: auto;" />
+          &lt;div id="dashibase-insert" style="width: 100%; height: 800px; margin: auto;" />&lt;/div>
           <br/>
-          &lt;script src="https://embed.dashibase.com/insert/embed.js" dashibase-key="{{ formId }}"{{ auth ? ' auth="true"' : ''}} />
+          &lt;script src="https://embed.dashibase.com/insert/embed.js" dashibase-key="{{ formId }}"{{ auth ? ' auth="true"' : ''}} />&lt;/script>
         </div>
       </div>
       <div class="text-neutral-600">
@@ -52,8 +52,8 @@ const copied = ref(false)
 const auth = ref(false)
 
 function copy () {
-  copyToClipboard(`<div id="dashibase-insert" style="width: 800px; height: 800px; margin: auto;" />
-<script src="https://embed.dashibase.com/insert/embed.js" dashibase-key="${props.formId}" />`)
+  copyToClipboard(`<div id="dashibase-insert" style="width: 800px; height: 800px; margin: auto;"></div>
+<script src="https://embed.dashibase.com/insert/embed.js" dashibase-key="${props.formId}"></script>`)
   copied.value = true
   setTimeout(() => copied.value = false, 1000)
 }
