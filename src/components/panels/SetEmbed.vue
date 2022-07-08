@@ -53,7 +53,7 @@ const auth = ref(false)
 
 function copy () {
   copyToClipboard(`<div id="dashibase-insert" style="width: 800px; height: 800px; margin: auto;" />
-<script src="https://embed.dashibase.com/index.js" dashibase-key="${props.formId}" />`)
+<script src="https://embed.dashibase.com/insert/embed.js" dashibase-key="${props.formId}" />`)
   copied.value = true
   setTimeout(() => copied.value = false, 1000)
 }
