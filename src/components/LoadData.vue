@@ -32,6 +32,7 @@ async function getUserForms () {
   const { data, error } = await supabase.from(import.meta.env.VITE_TABLE_ID)
     .select()
     .eq('user', store.user.id)
+    .not('table_id', 'is', null)
   if (error) console.error(error.message)
   else {
     if (data.length) {

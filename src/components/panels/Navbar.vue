@@ -3,8 +3,8 @@
     <Tooltip value="Menu" @click="store.sidepanelIsOpen=true">
       <MenuIcon class="w-10 h-10 text-neutral-800 hover:bg-neutral-100 p-2 rounded-lg cursor-pointer" />
     </Tooltip>
-    <div class="flex" v-if="!disableOptions && enableEmbed">
-      <Tooltip value="Embed">
+    <div class="flex" v-if="!disableOptions">
+      <Tooltip value="Embed" v-if="enableEmbed">
         <v-icon name="hi-code"
           class="w-10 h-10 text-neutral-800 hover:bg-neutral-100 p-2 rounded-lg cursor-pointer"
           @click="showPasswordMenu=false; showEmbedMenu=!showEmbedMenu"
