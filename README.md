@@ -22,8 +22,8 @@ Inspired by Notion and Tally, built with Vue, Tailwind and Supabase.
   <a href="https://twitter.com/dashibase">
     <img src="https://img.shields.io/badge/Twitter-00acee?logo=twitter&logoColor=white" />
   </a>
-  <a href="https://join.slack.com/t/dashibase-community/shared_invite/zt-180rycyqv-ifRwyiQAiXUlBBVxgxQE7g">
-    <img src="https://img.shields.io/badge/Slack-E4405F?logo=slack&logoColor=white" />
+  <a href="https://discord.gg/CqgZGh4ZA8">
+    <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white" />
   </a>
   <img src="https://img.shields.io/github/license/dashibase/dashibase-insert" />
   <br />
