@@ -35,7 +35,7 @@ But we also open-sourced our code, warts and all, for folks interested in how we
 
 Contributions welcome!
 
-**Have suggestions for what to work on next? Join our [Slack](https://join.slack.com/t/dashibase-community/shared_invite/zt-180rycyqv-ifRwyiQAiXUlBBVxgxQE7g) and let us know!**
+**Have suggestions for what to work on next? Join our [Discord](https://discord.gg/qwMRgaChRx) and let us know!**
 
 ---
 
